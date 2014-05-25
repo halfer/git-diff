@@ -26,10 +26,12 @@ require_once $root . '/lib/DiffLine.php';
 use ilovephp\DiffPage;
 use ilovephp\DiffLine;
 
-// Initialisation
-$inputFile = file_get_contents($root . '/demo/example.diff');
-$page = new DiffPage();
-$page->parseDiff($inputFile);
+// Set up demo pages
+$page1 = new DiffPage();
+$page1->parseDiff(file_get_contents($root . '/demo/example.diff'));
+
+$page2 = new DiffPage();
+$page2->parseDiff(file_get_contents($root . '/demo/example2.diff'));
 
 ?>
 
@@ -57,7 +59,7 @@ $page->parseDiff($inputFile);
 			<div class="file">
 				<div class="left side">
 					<div class="line-numbers">
-						<?php foreach ($page->getLeftLineNumbers() as $number): ?>
+						<?php foreach ($page1->getLeftLineNumbers() as $number): ?>
 							<?php if ($number): ?>
 								<div class="line line-number-line">
 									<pre><?php echo $number ?></pre>
@@ -70,7 +72,7 @@ $page->parseDiff($inputFile);
 						<?php endforeach ?>
 					</div>
 					<div class="diff-content">
-						<?php foreach ($page->getLeftLines() as $line): ?>
+						<?php foreach ($page1->getLeftLines() as $line): ?>
 							<?php if ($line instanceof DiffLine): ?>
 								<div class="line diff-line <?php echo $line->getTypeName() ?>">
 									<pre><?php echo htmlentities($line->getText()) ?></pre>
@@ -85,7 +87,7 @@ $page->parseDiff($inputFile);
 				</div>
 				<div class="right side">
 					<div class="line-numbers">
-						<?php foreach ($page->getRightLineNumbers() as $number): ?>
+						<?php foreach ($page1->getRightLineNumbers() as $number): ?>
 							<?php if ($number): ?>
 								<div class="line line-number-line">
 									<pre><?php echo $number ?></pre>
@@ -98,7 +100,7 @@ $page->parseDiff($inputFile);
 						<?php endforeach ?>
 					</div>
 					<div class="diff-content">
-						<?php foreach ($page->getRightLines() as $line): ?>
+						<?php foreach ($page1->getRightLines() as $line): ?>
 							<?php if ($line instanceof DiffLine): ?>
 								<div class="line diff-line <?php echo $line->getTypeName() ?>">
 									<pre><?php echo htmlentities($line->getText()) ?></pre>
@@ -114,14 +116,22 @@ $page->parseDiff($inputFile);
 			</div>
 		</div>
 
-		<p style="clear: both; padding-top: 12px;">
+		<p>
 			This renders by section, and so does a better job of showing it's not the whole
 			file:
 		</p>
 
 		<!-- Do by section -->
 		<div class="container">
-			<?php $page->render() ?>
+			<?php $page1->render() ?>
+		</div>
+
+		<p>
+			This is a problematic diff, so copying it here to test:
+		</p>
+
+		<div class="container">
+			<?php $page2->render() ?>
 		</div>
 
 		<?php // So we can see the end of the demo better ?>
