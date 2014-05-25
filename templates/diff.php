@@ -5,7 +5,7 @@
 			class="section <?php if ($ord == 0 && $section->getLeftLineNumbers() > 1) echo 'top-missing' ?>"
 		>
 			<?php foreach ($section->getLeftLines() as $line): ?>
-				<?php if ($line instanceof DiffLine): ?>
+				<?php if ($line instanceof ilovephp\DiffLine): ?>
 					<div class="line diff-line <?php echo $line->getTypeName() ?>">
 						<pre><?php echo htmlentities($line->getText()) ?></pre>
 					</div>

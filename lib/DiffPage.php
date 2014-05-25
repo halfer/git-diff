@@ -1,5 +1,7 @@
 <?php
 
+namespace ilovephp;
+
 class DiffPage
 {
 	protected $sections = array();

@@ -1,5 +1,7 @@
 <?php
 
+namespace ilovephp;
+
 class DiffSection
 {
 	protected $details;

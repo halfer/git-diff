@@ -1,5 +1,7 @@
 <?php
 
+namespace ilovephp;
+
 class DiffLine
 {
 	protected $lineText;
