@@ -3,6 +3,7 @@
  * Renders the line numbers for all page sections
  * 
  * @var $page
+ * @var $isFullWidth
  */
 ?>
 

@@ -4,9 +4,13 @@ namespace ilovephp;
 
 class DiffPage
 {
-	protected $sections = array();
+	const DELETED    = 1;
+	const INSERTED   = 2;
 
-	public function parseDiff($diff)
+	protected $sections = array();
+	protected $forceStatus = null;
+
+	public function parseDiff($diff, $forceStatus = null)
 	{
 		$inputLines = explode("\n", $diff);
 
@@ -30,7 +34,12 @@ class DiffPage
 					);
 				}
 			}
-		}		
+		}
+
+		if ($forceStatus)
+		{
+			$this->forceStatus = $forceStatus;
+		}
 	}
 
 	protected function startSection($details)
@@ -54,11 +63,12 @@ class DiffPage
 	/**
 	 * Renders a whole left-right diff block
 	 * 
-	 * Note $page +is+ used, in the included files
+	 * Note $page and $forceStatus +are+ used, in the included files
 	 */
 	public function render()	
 	{
 		$page = $this;
+		$forceStatus = $this->forceStatus;
 
 		require $this->getRoot() . '/templates/page.php';
 	}
@@ -66,13 +76,14 @@ class DiffPage
 	/**
 	 * Renders a line number and diff block for the left or right side
 	 * 
-	 * Note $side and $page +are+ used, in the included files
+	 * Note $side, $page and $isFullWidth +are+ used, in the included files
 	 * 
 	 * @param string $side Either 'left' or 'right
 	 */
 	public function renderSide($side)
 	{
 		$page = $this;
+		$isFullWidth = (boolean) $this->forceStatus;
 
 		require $this->getRoot() . '/templates/line-numbers.php';
 		require $this->getRoot() . '/templates/diff.php';
