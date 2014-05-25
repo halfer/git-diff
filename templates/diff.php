@@ -2,9 +2,9 @@
 	<?php foreach ($page->getSections() as $ord => $section): ?>
 		<div
 			<?php // If we're missing out top lines, make that clear ?>
-			class="section <?php if ($ord == 0 && $section->getLeftLineNumbers() > 1) echo 'top-missing' ?>"
+			class="section <?php if ($ord == 0 && $section->getFirstLineNumberForSide($side) > 1) echo 'top-missing' ?>"
 		>
-			<?php foreach ($section->getLeftLines() as $line): ?>
+			<?php foreach ($section->getLinesForSide($side) as $line): ?>
 				<?php if ($line instanceof ilovephp\DiffLine): ?>
 					<div class="line diff-line <?php echo $line->getTypeName() ?>">
 						<pre><?php echo htmlentities($line->getText()) ?></pre>

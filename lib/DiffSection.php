@@ -35,6 +35,11 @@ class DiffSection
 		return $startLine;
 	}
 
+	public function getLinesForSide($side)
+	{
+		return ($side === 'left') ? $this->getLeftLines() : $this->getRightLines();
+	}
+
 	public function getLeftLines()
 	{
 		return $this->getLines(array(null, '-'));
@@ -62,6 +67,16 @@ class DiffSection
 		}
 
 		return $lines;
+	}
+
+	public function getLineNumbersForSide($side)
+	{
+		return ($side === 'left') ? $this->getLeftLineNumbers() : $this->getRightLineNumbers();
+	}
+
+	public function getFirstLineNumberForSide($side)
+	{
+		return reset($this->getLineNumbersForSide($side));
 	}
 
 	public function getLeftLineNumbers()

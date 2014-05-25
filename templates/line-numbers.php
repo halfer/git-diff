@@ -10,9 +10,9 @@
 	<?php foreach ($page->getSections() as $ord => $section): ?>
 		<div
 			<?php // If we're missing out top lines, make that clear ?>
-			class="line-numbers-section <?php if ($ord == 0 && $section->getLeftLineNumbers() > 1) echo 'top-missing' ?>"
+			class="line-numbers-section <?php if ($ord == 0 && $section->getFirstLineNumberForSide($side) > 1) echo 'top-missing' ?>"
 		>
-			<?php foreach ($section->getLeftLineNumbers() as $number): ?>
+			<?php foreach ($section->getLineNumbersForSide($side) as $number): ?>
 				<?php if ($number): ?>
 					<div class="line line-number-line">
 						<pre><?php echo $number ?></pre>

@@ -16,6 +16,14 @@ class DiffPage
 		return $this->sections;
 	}
 
+	public function render($side)
+	{
+		$page = $this;
+
+		require $this->getRoot() . '/templates/line-numbers.php';
+		require $this->getRoot() . '/templates/diff.php';
+	}
+
 	/**
 	 * 
 	 * @return DiffSection
@@ -73,5 +81,10 @@ class DiffPage
 		}
 
 		return $numbers;		
+	}
+
+	protected function getRoot()
+	{
+		return realpath(__DIR__ . '/..');
 	}
 }
