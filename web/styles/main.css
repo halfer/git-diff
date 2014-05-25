@@ -10,6 +10,7 @@
 }
 .side {
 	display: table-cell;
+	vertical-align: top;
 }
 .left {
 	border-right: 1px solid silver;
@@ -44,7 +45,7 @@
 }
 
 .line-numbers {
-	display: table-cell;
+	float: left;
 	text-align: right;
 	color: silver;
 }
@@ -52,7 +53,6 @@
 	padding: 0 4px 0 2px;
 }
 .diff-content {
-	display: table-cell;
 	/* Useful for narrow sides that would normally take up less than 50% width */
 	width: 100%;
 }
