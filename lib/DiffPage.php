@@ -33,7 +33,7 @@ class DiffPage
 		}		
 	}
 
-	public function startSection($details)
+	protected function startSection($details)
 	{
 		$this->sections[] = new DiffSection($details);
 	}
@@ -43,6 +43,19 @@ class DiffPage
 		return $this->sections;
 	}
 
+	public function getRender()
+	{
+		ob_start();
+		$this->render();
+
+		return ob_get_clean();
+	}
+
+	/**
+	 * Renders a whole left-right diff block
+	 * 
+	 * Note $page +is+ used, in the included files
+	 */
 	public function render()	
 	{
 		$page = $this;
@@ -50,6 +63,13 @@ class DiffPage
 		require $this->getRoot() . '/templates/page.php';
 	}
 
+	/**
+	 * Renders a line number and diff block for the left or right side
+	 * 
+	 * Note $side and $page +are+ used, in the included files
+	 * 
+	 * @param string $side Either 'left' or 'right
+	 */
 	public function renderSide($side)
 	{
 		$page = $this;
