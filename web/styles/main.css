@@ -2,7 +2,11 @@
 .file {
 	padding: 0;
 	margin: 0;
+	/* @todo Do we need the clear? Can't remember what this was for */
 	clear: both;
+	/* The display/width gives the .side child % widths something to be relative to */
+	display: table;
+	width: 100%;
 }
 .side {
 	display: table-cell;
@@ -49,8 +53,10 @@
 }
 .diff-content {
 	display: table-cell;
-	width: auto;
+	/* Useful for narrow sides that would normally take up less than 50% width */
+	width: 100%;
 }
+
 .diff-line {
 	padding-left: 2px;
 }
