@@ -1,0 +1,20 @@
+<div class="diff-content">
+	<?php foreach ($page->getSections() as $ord => $section): ?>
+		<div
+			<?php // If we're missing out top lines, make that clear ?>
+			class="section <?php if ($ord == 0 && $section->getLeftLineNumbers() > 1) echo 'top-missing' ?>"
+		>
+			<?php foreach ($section->getLeftLines() as $line): ?>
+				<?php if ($line instanceof DiffLine): ?>
+					<div class="line diff-line <?php echo $line->getTypeName() ?>">
+						<pre><?php echo htmlentities($line->getText()) ?></pre>
+					</div>
+				<?php else: ?>
+					<div class="line diff-line-empty">
+						<pre></pre>
+					</div>
+				<?php endif ?>
+			<?php endforeach ?>
+		</div>
+	<?php endforeach ?>
+</div>
