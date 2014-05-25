@@ -16,7 +16,14 @@ class DiffPage
 		return $this->sections;
 	}
 
-	public function render($side)
+	public function render()	
+	{
+		$page = $this;
+
+		require $this->getRoot() . '/templates/page.php';
+	}
+
+	public function renderSide($side)
 	{
 		$page = $this;
 
