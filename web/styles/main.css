@@ -1,0 +1,71 @@
+/* This would be rendered by the plugin */
+.file {
+	padding: 0;
+	margin: 0;
+	clear: both;
+}
+.side {
+	display: table-cell;
+}
+.left {
+	border-right: 1px solid silver;
+}
+.right {
+}
+
+/* Invisible side borders tend to eat into the visible bottom border, and we're really only
+	concerned with maintaining a consistent height with the line numbers anyway */
+.section {
+	border-top: 1px solid rgba(0, 0, 0, 0);
+	border-bottom: 4px solid silver;
+}
+/* By default, we'll not render a section rule-off at the bottom, even if there is more */
+.section:last-child {
+	border-bottom: none;
+}
+.section.top-missing {
+	border-top: 4px solid silver;				
+}
+
+.line-numbers-section {
+	border-top: 1px solid rgba(0, 0, 0, 0);
+	border-bottom: 4px solid silver;
+}
+/* By default, we'll not render a section rule-off at the bottom, even if there is more */
+.line-numbers-section:last-child {
+	border-bottom: none;
+}
+.line-numbers-section.top-missing {
+	border-top: 4px solid silver;				
+}
+
+.line-numbers {
+	display: table-cell;
+	text-align: right;
+	color: silver;
+}
+.line-number-line {
+	padding: 0 4px 0 2px;
+}
+.diff-content {
+	display: table-cell;
+	width: auto;
+}
+.diff-line {
+	padding-left: 2px;
+}
+.file pre {
+	margin: 0;
+}
+.diff-line-deleted {
+	background-color: #ffe0e0;
+}
+.diff-line-added {
+	background-color: #e0ffe0;
+}
+.line {
+	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+.line pre {
+	height: 1.2em;
+}
