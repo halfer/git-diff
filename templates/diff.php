@@ -1,3 +1,11 @@
+<?php
+/*
+ * Renders the line numbers for all page sections
+ * 
+ * @var $page
+ */
+?>
+
 <div class="diff-content">
 	<?php foreach ($page->getSections() as $ord => $section): ?>
 		<div
