@@ -6,6 +6,33 @@ class DiffPage
 {
 	protected $sections = array();
 
+	public function parseDiff($diff)
+	{
+		$inputLines = explode("\n", $diff);
+
+		// Parsing
+		foreach ($inputLines as $inputLine)
+		{
+			$matches = array();
+			preg_match('/@@ (.+) @@/', $inputLine, $matches);
+
+			// If we find a block declaration, create one
+			if ($matches)
+			{
+				$this->startSection($matches[1]);
+			}
+			else
+			{
+				if ($currentSection = $this->getCurrentSection())
+				{
+					$currentSection->addLine(
+						new DiffLine($inputLine)
+					);
+				}
+			}
+		}		
+	}
+
 	public function startSection($details)
 	{
 		$this->sections[] = new DiffSection($details);
