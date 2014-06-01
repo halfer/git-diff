@@ -26,14 +26,22 @@ require_once $root . '/lib/DiffLine.php';
 use ilovephp\DiffPage;
 use ilovephp\DiffLine;
 
-// Set up demo pages
-$page1 = new DiffPage();
-$diff1 = file_get_contents($root . '/demo/example.diff');
-$page1->parseDiff($diff1);
+// Here's the files and diffs to look at
+$files = array(
+	'/demo/example.diff', '/demo/example2.diff',
+	
+);
 
-$page2 = new DiffPage();
-$diff2 = file_get_contents($root . '/demo/example2.diff');
-$page2->parseDiff($diff2);
+$pages = array();
+$diffs = array();
+
+// Set up demo pages
+foreach ($files as $ord => $file)
+{
+	$pages[$ord] = new DiffPage();
+	$diffs[$ord] = file_get_contents($root . $file);
+	$pages[$ord]->parseDiff($diffs[$ord]);
+}
 
 ?>
 
@@ -61,7 +69,7 @@ $page2->parseDiff($diff2);
 			<div class="file">
 				<div class="left side">
 					<div class="line-numbers">
-						<?php foreach ($page1->getLeftLineNumbers() as $number): ?>
+						<?php foreach ($pages[0]->getLeftLineNumbers() as $number): ?>
 							<?php if ($number): ?>
 								<div class="line line-number-line">
 									<pre><?php echo $number ?></pre>
@@ -74,7 +82,7 @@ $page2->parseDiff($diff2);
 						<?php endforeach ?>
 					</div>
 					<div class="diff-content">
-						<?php foreach ($page1->getLeftLines() as $line): ?>
+						<?php foreach ($pages[0]->getLeftLines() as $line): ?>
 							<?php if ($line instanceof DiffLine): ?>
 								<div class="line diff-line <?php echo $line->getTypeName() ?>">
 									<pre><?php echo htmlentities($line->getText()) ?></pre>
@@ -89,7 +97,7 @@ $page2->parseDiff($diff2);
 				</div>
 				<div class="right side">
 					<div class="line-numbers">
-						<?php foreach ($page1->getRightLineNumbers() as $number): ?>
+						<?php foreach ($pages[0]->getRightLineNumbers() as $number): ?>
 							<?php if ($number): ?>
 								<div class="line line-number-line">
 									<pre><?php echo $number ?></pre>
@@ -102,7 +110,7 @@ $page2->parseDiff($diff2);
 						<?php endforeach ?>
 					</div>
 					<div class="diff-content">
-						<?php foreach ($page1->getRightLines() as $line): ?>
+						<?php foreach ($pages[0]->getRightLines() as $line): ?>
 							<?php if ($line instanceof DiffLine): ?>
 								<div class="line diff-line <?php echo $line->getTypeName() ?>">
 									<pre><?php echo htmlentities($line->getText()) ?></pre>
@@ -125,28 +133,28 @@ $page2->parseDiff($diff2);
 
 		<!-- Do by section -->
 		<div class="container">
-			<?php $page1->render() ?>
+			<?php $pages[0]->render() ?>
 		</div>
 
 		<p>
 			This is the raw diff:
 		</p>
 
-		<pre><?php echo htmlspecialchars($diff1) ?></pre>
+		<pre><?php echo htmlspecialchars($diffs[0]) ?></pre>
 
 		<p>
 			This is a more complex diff, so copying it here to try it:
 		</p>
 
 		<div class="container">
-			<?php $page2->render() ?>
+			<?php $pages[1]->render() ?>
 		</div>
 
 		<p>
 			This is the raw diff:
 		</p>
 
-		<pre><?php echo htmlspecialchars($diff2) ?></pre>
+		<pre><?php echo htmlspecialchars($diffs[1]) ?></pre>
 
 		<?php // So we can see the end of the demo better ?>
 		<p style="clear: both;">&nbsp;</p>
