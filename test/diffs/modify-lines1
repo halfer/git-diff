@@ -1,0 +1,19 @@
+commit bb8c8171af04fe0e7bb5cd88ca1927f810511ab8
+Author: halfer <projects.ws@jondh.me.uk>
+Date:   Sun Jun 1 18:02:45 2014 +0100
+
+    Modify a test file line
+
+diff --git a/test/files/modify-lines1 b/test/files/modify-lines1
+index 6f83082..0bd8ca1 100644
+--- a/test/files/modify-lines1
++++ b/test/files/modify-lines1
+@@ -3,7 +3,7 @@
+ 3
+ 4
+ 5
+-6
++6 < this line is modified
+ 7
+ 8
+ 9
