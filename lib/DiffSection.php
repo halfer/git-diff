@@ -5,8 +5,7 @@ namespace ilovephp;
 class DiffSection
 {
 	protected $details;
-	// Commit this change separately
-	protected $lines = array();
+	protected $lines;
 
 	public function __construct($details)
 	{
@@ -76,8 +75,16 @@ class DiffSection
 			}
 			else
 			{
-				// Only add blanks in if they're required (@todo requires more testing)
-				if ($right > $left)
+				/*
+				 * Strategy:
+				 * 
+				 * If there's a LH deletion, then even up the blocks on the RHS
+				 * If there's a RH addition, even up the blocks on the LHS
+				 */
+				if (
+					($right > $left && in_array('-', $types)) ||
+					($left > $right && in_array('+', $types))
+				)
 				{
 					$lines[] = null;
 				}
