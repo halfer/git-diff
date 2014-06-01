@@ -53,16 +53,33 @@ class DiffSection
 	public function getLines(array $types)
 	{
 		$lines = array();
+		$left = 0;
+		$right = 0;
 		foreach ($this->lines as $line)
 		{
+			$type = $line->getType();
+			switch ($type)
+			{
+				case '+':
+					$right++; break;
+				case '-':
+					$left++; break;
+				default:
+					$left = $right = 0;
+			}
+
 			/* @var $line DiffLine */
-			if (in_array($line->getType(), $types))
+			if (in_array($type, $types))
 			{
 				$lines[] = $line;
 			}
 			else
 			{
-				$lines[] = null;
+				// Only add blanks in if they're required (@todo requires more testing)
+				if ($right > $left)
+				{
+					$lines[] = null;
+				}
 			}
 		}
 

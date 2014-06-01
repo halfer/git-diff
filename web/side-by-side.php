@@ -28,10 +28,12 @@ use ilovephp\DiffLine;
 
 // Set up demo pages
 $page1 = new DiffPage();
-$page1->parseDiff(file_get_contents($root . '/demo/example.diff'));
+$diff1 = file_get_contents($root . '/demo/example.diff');
+$page1->parseDiff($diff1);
 
 $page2 = new DiffPage();
-$page2->parseDiff(file_get_contents($root . '/demo/example2.diff'));
+$diff2 = file_get_contents($root . '/demo/example2.diff');
+$page2->parseDiff($diff2);
 
 ?>
 
@@ -127,12 +129,24 @@ $page2->parseDiff(file_get_contents($root . '/demo/example2.diff'));
 		</div>
 
 		<p>
-			This is a problematic diff, so copying it here to test:
+			This is the raw diff:
+		</p>
+
+		<pre><?php echo htmlspecialchars($diff1) ?></pre>
+
+		<p>
+			This is a more complex diff, so copying it here to try it:
 		</p>
 
 		<div class="container">
 			<?php $page2->render() ?>
 		</div>
+
+		<p>
+			This is the raw diff:
+		</p>
+
+		<pre><?php echo htmlspecialchars($diff2) ?></pre>
 
 		<?php // So we can see the end of the demo better ?>
 		<p style="clear: both;">&nbsp;</p>
