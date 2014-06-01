@@ -70,7 +70,7 @@
 	background-color: #e0ffe0;
 }
 .line {
-	border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+	border-bottom: 1px solid #eeeeee;
 }
 .line pre {
 	height: 1.2em;
