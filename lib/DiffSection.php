@@ -5,7 +5,8 @@ namespace ilovephp;
 class DiffSection
 {
 	protected $details;
-	protected $lines;
+	// Commit this change separately
+	protected $lines = array();
 
 	public function __construct($details)
 	{
