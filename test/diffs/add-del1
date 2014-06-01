@@ -1,0 +1,23 @@
+commit b720096ea7a3ceab3cf566c75678ef079ea758e2
+Author: halfer <projects.ws@jondh.me.uk>
+Date:   Sun Jun 1 17:28:06 2014 +0100
+
+    Add a file that has had deletions and additions
+
+diff --git a/test/files/add-del1 b/test/files/add-del1
+index 6f83082..f7db649 100644
+--- a/test/files/add-del1
++++ b/test/files/add-del1
+@@ -1,11 +1,11 @@
+ 1
+ 2
+-3
+ 4
+ 5
+ 6
+ 7
+ 8
++A
+ 9
+ 10
+ 11
