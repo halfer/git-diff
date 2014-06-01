@@ -29,7 +29,7 @@ use ilovephp\DiffLine;
 // Here's the files and diffs to look at
 $files = array(
 	'/demo/example.diff', '/demo/example2.diff',
-	
+	'/test/diffs/add-lines1', '/test/diffs/del-lines1', '/test/diffs/add-del1',
 );
 
 $pages = array();
@@ -155,6 +155,22 @@ foreach ($files as $ord => $file)
 		</p>
 
 		<pre><?php echo htmlspecialchars($diffs[1]) ?></pre>
+
+		<hr />
+
+		<h2>Unit test data</h2>
+		
+		<?php for ($fileNo = 2; $fileNo < count($files); $fileNo++): ?>
+
+			<p>Graphical diff:</p>
+			<div class="container">
+				<?php $pages[$fileNo]->render() ?>
+			</div>
+
+			<p>Raw diff:</p>
+			<pre><?php echo htmlspecialchars($diffs[$fileNo]) ?></pre>
+
+		<?php endfor ?>
 
 		<?php // So we can see the end of the demo better ?>
 		<p style="clear: both;">&nbsp;</p>
