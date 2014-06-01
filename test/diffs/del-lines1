@@ -1,0 +1,19 @@
+commit 0c8bc141825f8a7b40db6bf121984586386ae7fe
+Author: halfer <projects.ws@jondh.me.uk>
+Date:   Sun Jun 1 16:58:32 2014 +0100
+
+    Delete some lines
+
+diff --git a/test/files/del-lines1 b/test/files/del-lines1
+index 08fe19c..219cd8c 100644
+--- a/test/files/del-lines1
++++ b/test/files/del-lines1
+@@ -2,8 +2,6 @@
+ 2
+ 3
+ 4
+-5
+-6
+ 7
+ 8
+ 9

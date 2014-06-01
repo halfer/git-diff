@@ -1,0 +1,20 @@
+commit 11ecdc1a8ba9a13fdb212d7788af1b79d81e90a7
+Author: halfer <projects.ws@jondh.me.uk>
+Date:   Sun Jun 1 17:17:00 2014 +0100
+
+    Add lines to test
+
+diff --git a/test/files/add-lines1 b/test/files/add-lines1
+index 6f83082..bf8f7bf 100644
+--- a/test/files/add-lines1
++++ b/test/files/add-lines1
+@@ -2,6 +2,9 @@
+ 2
+ 3
+ 4
++A new
++B lines
++C here
+ 5
+ 6
+ 7
