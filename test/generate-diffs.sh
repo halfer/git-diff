@@ -12,5 +12,7 @@ git show b720096ea7a3ceab3cf566c75678ef079ea758e2 > diffs/add-del1
 
 git show bb8c8171af04fe0e7bb5cd88ca1927f810511ab8 > diffs/modify-lines1
 
+git show 5d1c777f1910e1350aea719676d43daa728c60d5 > diffs/modify-lines2
+
 # Go back to original dir
 cd $STARTDIR 

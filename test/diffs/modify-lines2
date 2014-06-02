@@ -1,0 +1,23 @@
+commit 5d1c777f1910e1350aea719676d43daa728c60d5
+Author: halfer <projects.ws@jondh.me.uk>
+Date:   Sun Jun 1 18:08:58 2014 +0100
+
+    Modify three lines in one go
+
+diff --git a/test/files/modify-lines2 b/test/files/modify-lines2
+index 08fe19c..cfbab3d 100644
+--- a/test/files/modify-lines2
++++ b/test/files/modify-lines2
+@@ -1,9 +1,9 @@
+ 1
+ 2
+ 3
+-4
+-5
+-6
++4 < modified line 1
++5 < modified line 2
++6 < modified line 3
+ 7
+ 8
+ 9

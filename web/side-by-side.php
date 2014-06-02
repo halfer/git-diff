@@ -30,7 +30,7 @@ use ilovephp\DiffLine;
 $files = array(
 	'/demo/example.diff', '/demo/example2.diff',
 	'/test/diffs/add-lines1', '/test/diffs/del-lines1', '/test/diffs/add-del1',
-	'/test/diffs/modify-lines1',
+	'/test/diffs/modify-lines1', '/test/diffs/modify-lines2',
 );
 
 $pages = array();
