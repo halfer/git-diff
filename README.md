@@ -8,7 +8,9 @@ This is a simple PHP library to render Git diff output as `div`-based HTML outpu
 * Sections without changes are indicated
 * CSS output is easily restyled
 
-A demo file is included to show how it can be called.
+A demo file is included, or you can simply do something like this:
+
+    <?php
 
     // Grab diff output from the git binary
     $diffStr = `git diff changedfile`;
