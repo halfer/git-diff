@@ -26,6 +26,10 @@
       color: silver; }
     .file .side .line-number-line {
       padding: 0 4px 0 2px; }
+    .file .side .line {
+      border-bottom: 1px solid #eeeeee; }
+    .file .side .line pre {
+      height: 1.2em; }
   .file pre {
     margin: 0; }
 
@@ -45,10 +49,6 @@
 .diff-content {
   /* Useful for narrow sides that would normally take up less than 50% width */
   width: 100%; }
-  .diff-content .line {
-    border-bottom: 1px solid #eeeeee; }
-  .diff-content .line pre {
-    height: 1.2em; }
   .diff-content .diff-line {
     padding-left: 2px; }
 

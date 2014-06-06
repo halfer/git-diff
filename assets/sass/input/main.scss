@@ -38,6 +38,13 @@
 		.line-number-line {
 			padding: 0 4px 0 2px;
 		}
+
+		.line {
+			border-bottom: 1px solid #eeeeee;
+		}
+		.line pre {
+			height: 1.2em;
+		}
 	}
 
 	pre {
@@ -62,13 +69,6 @@
 .diff-content {
 	/* Useful for narrow sides that would normally take up less than 50% width */
 	width: 100%;
-
-	.line {
-		border-bottom: 1px solid #eeeeee;
-	}
-	.line pre {
-		height: 1.2em;
-	}
 
 	.diff-line {
 		padding-left: 2px;
