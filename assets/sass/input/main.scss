@@ -45,6 +45,22 @@
 		.line pre {
 			height: 1.2em;
 		}
+
+		.diff-content {
+			/* Useful for narrow sides that would normally take up less than 50% width */
+			width: 100%;
+
+			.diff-line {
+				padding-left: 2px;
+			}
+		}
+
+		.diff-line-deleted {
+			background-color: #ffe0e0;
+		}
+		.diff-line-added {
+			background-color: #e0ffe0;
+		}
 	}
 
 	pre {
@@ -64,20 +80,4 @@
 }
 .section.top-missing {
 	border-top: 4px solid silver;				
-}
-
-.diff-content {
-	/* Useful for narrow sides that would normally take up less than 50% width */
-	width: 100%;
-
-	.diff-line {
-		padding-left: 2px;
-	}
-}
-
-.diff-line-deleted {
-	background-color: #ffe0e0;
-}
-.diff-line-added {
-	background-color: #e0ffe0;
 }
