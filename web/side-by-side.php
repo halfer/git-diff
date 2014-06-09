@@ -58,7 +58,7 @@ foreach ($files as $ord => $file)
 				height: 300px;
 			}
 		</style>
-		<link type="text/css" rel="stylesheet" href="/styles/git-diff.css" />
+		<link type="text/css" rel="stylesheet" href="/styles/compiled.css" />
 	</head>
 	<body>
 		<p>
