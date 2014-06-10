@@ -29,10 +29,9 @@
       .file .side .line-numbers .line-number-line {
         padding: 0 4px 0 2px; }
       .file .side .line-numbers .line-number-empty {
-        border-bottom-color: red; }
-      .file .side .line-numbers .line-number-empty:last-of-type {
-        border-bottom-color: #eeeeee;
-        background-color: greenyellow; }
+        border-bottom-color: transparent; }
+      .file .side .line-numbers div.line-number-empty + div.line-number-line {
+        border-top: 1px solid #eeeeee; }
     .file .side .line {
       border-bottom: 1px solid #eeeeee; }
     .file .side .line pre {
@@ -47,10 +46,9 @@
       .file .side .diff-content .diff-line-added {
         background-color: #e0ffe0; }
       .file .side .diff-content .diff-line-empty {
-        border-bottom-color: red; }
-      .file .side .diff-content div.diff-line-empty:last-of-type {
-        border-bottom-color: #eeeeee;
-        background-color: greenyellow; }
+        border-bottom-color: transparent; }
+      .file .side .diff-content div.diff-line-empty + div.diff-line {
+        border-top: 1px solid #eeeeee; }
     .file .side .section {
       border-top: 1px solid rgba(0, 0, 0, 0);
       border-bottom: 4px solid silver; }
