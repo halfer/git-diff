@@ -12,7 +12,10 @@
     /* By default, we'll not render a section rule-off at the bottom, even if there is more */
     /* Invisible side borders tend to eat into the visible bottom border, and we're really only
     	concerned with maintaining a consistent height with the line numbers anyway */
-    /* By default, we'll not render a section rule-off at the bottom, even if there is more */ }
+    /* By default, we'll not render a section rule-off at the bottom, even if there is more */
+    /* For both code and line numbers, we don't want a top border on the first child, since
+    	that will replicate the thick section border
+    */ }
     .file .side .left {
       border-right: 1px solid silver; }
     .file .side .line-numbers-section {
@@ -29,11 +32,9 @@
       .file .side .line-numbers .line-number-line {
         padding: 0 4px 0 2px; }
       .file .side .line-numbers .line-number-empty {
-        border-bottom-color: transparent; }
-      .file .side .line-numbers div.line-number-empty + div.line-number-line {
-        border-top: 1px solid #eeeeee; }
+        border-top-color: transparent; }
     .file .side .line {
-      border-bottom: 1px solid #eeeeee; }
+      border-top: 1px solid #eeeeee; }
     .file .side .line pre {
       height: 1.2em; }
     .file .side .diff-content {
@@ -46,9 +47,9 @@
       .file .side .diff-content .diff-line-added {
         background-color: #e0ffe0; }
       .file .side .diff-content .diff-line-empty {
-        border-bottom-color: transparent; }
-      .file .side .diff-content div.diff-line-empty + div.diff-line {
-        border-top: 1px solid #eeeeee; }
+        border-top-color: transparent; }
+      .file .side .diff-content div.diff-line + div.diff-line-empty {
+        border-top: 1px solid red; }
     .file .side .section {
       border-top: 1px solid rgba(0, 0, 0, 0);
       border-bottom: 4px solid silver; }
@@ -56,5 +57,8 @@
       border-bottom: none; }
     .file .side .section.top-missing {
       border-top: 4px solid silver; }
+    .file .side .section div:first-child,
+    .file .side .line-numbers-section div:first-child {
+      border-top-color: transparent; }
   .file pre {
     margin: 0; }

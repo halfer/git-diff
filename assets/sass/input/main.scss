@@ -38,16 +38,12 @@
 				padding: 0 4px 0 2px;
 			}
 			.line-number-empty {
-				border-bottom-color: transparent;
-			}
-			div.line-number-empty + div.line-number-line {
-				// @todo Copy what .line has here
-				border-top: 1px solid #eeeeee;
+				border-top-color: transparent;
 			}
 		}
 
 		.line {
-			border-bottom: 1px solid #eeeeee;
+			border-top: 1px solid #eeeeee;
 		}
 		.line pre {
 			height: 1.2em;
@@ -68,11 +64,11 @@
 				background-color: #e0ffe0;
 			}
 			.diff-line-empty {
-				border-bottom-color: transparent;
+				border-top-color: transparent;
 			}
-			div.diff-line-empty + div.diff-line {
+			div.diff-line + div.diff-line-empty {
 				// @todo Copy what .line has here
-				border-top: 1px solid #eeeeee;
+				border-top: 1px solid red;
 			}
 		}
 
@@ -88,6 +84,13 @@
 		}
 		.section.top-missing {
 			border-top: 4px solid silver;				
+		}
+		/* For both code and line numbers, we don't want a top border on the first child, since
+			that will replicate the thick section border
+		*/
+		.section div:first-child,
+		.line-numbers-section div:first-child {
+			border-top-color: transparent;
 		}
 	}
 
