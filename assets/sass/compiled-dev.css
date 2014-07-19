@@ -14,7 +14,7 @@
     	concerned with maintaining a consistent height with the line numbers anyway */
     /* By default, we'll not render a section rule-off at the bottom, even if there is more */
     /* Sections use bottom borders not top ones (@todo this probably needs fixing) */ }
-    .file .side .left {
+    .file .side.left {
       border-right: 1px solid silver; }
     .file .side .line-numbers-section {
       border-top: 1px solid rgba(0, 0, 0, 0);

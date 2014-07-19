@@ -11,7 +11,7 @@
 		display: table-cell;
 		vertical-align: top;
 
-		.left {
+		&.left {
 			border-right: 1px solid silver;
 		}
 		.right {
