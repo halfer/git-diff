@@ -13,10 +13,7 @@
     /* Invisible side borders tend to eat into the visible bottom border, and we're really only
     	concerned with maintaining a consistent height with the line numbers anyway */
     /* By default, we'll not render a section rule-off at the bottom, even if there is more */
-    /* Sections use bottom borders not top ones (@todo this probably needs fixing) */
-    /* For both code and line numbers, we don't want a top border on the first child, since
-    	that will replicate the thick section border
-    */ }
+    /* Sections use bottom borders not top ones (@todo this probably needs fixing) */ }
     .file .side .left {
       border-right: 1px solid silver; }
     .file .side .line-numbers-section {
@@ -59,9 +56,11 @@
       border-top: 4px solid silver; }
     .file .side .section,
     .file .side .line-numbers-section {
-      border-top: none; }
-    .file .side .section div:first-child,
-    .file .side .line-numbers-section div:first-child {
-      border-top: none; }
+      border-top: none;
+      /* For both code and line numbers, we don't want a top border on the first child,
+      	since that will replicate the thick section border */ }
+      .file .side .section div:first-child,
+      .file .side .line-numbers-section div:first-child {
+        border-top: none; }
   .file pre {
     margin: 0; }

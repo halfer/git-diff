@@ -87,13 +87,12 @@
 		.section,
 		.line-numbers-section {
 			border-top: none;
-		}
-		/* For both code and line numbers, we don't want a top border on the first child, since
-			that will replicate the thick section border
-		*/
-		.section div:first-child,
-		.line-numbers-section div:first-child {
-			border-top: none;
+
+			/* For both code and line numbers, we don't want a top border on the first child,
+				since that will replicate the thick section border */
+			div:first-child {
+				border-top: none;			
+			}
 		}
 	}
 
