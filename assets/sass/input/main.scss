@@ -74,7 +74,6 @@
 		/* Invisible side borders tend to eat into the visible bottom border, and we're really only
 			concerned with maintaining a consistent height with the line numbers anyway */
 		.section {
-			border-top: 1px solid rgba(0, 0, 0, 0);
 			border-bottom: 4px solid silver;
 		}
 		/* By default, we'll not render a section rule-off at the bottom, even if there is more */
@@ -84,12 +83,17 @@
 		.section.top-missing {
 			border-top: 4px solid silver;				
 		}
+		/* Sections use bottom borders not top ones (@todo this probably needs fixing) */
+		.section,
+		.line-numbers-section {
+			border-top: none;
+		}
 		/* For both code and line numbers, we don't want a top border on the first child, since
 			that will replicate the thick section border
 		*/
 		.section div:first-child,
 		.line-numbers-section div:first-child {
-			border-top-color: transparent;
+			border-top: none;
 		}
 	}
 
