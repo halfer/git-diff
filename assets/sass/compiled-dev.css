@@ -26,7 +26,9 @@
     .file .side .line-numbers {
       float: left;
       text-align: right;
-      color: silver; }
+      color: silver;
+      border-right: 1px dotted silver;
+      margin-right: 2px; }
       .file .side .line-numbers .line-number-line {
         padding: 0 4px 0 2px; }
       .file .side .line-numbers .line-number-empty {
