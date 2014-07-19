@@ -57,13 +57,17 @@ foreach ($files as $ord => $file)
 				width: 1000px;
 				height: 300px;
 			}
+			body > p {
+				max-width: 1000px;
+			}
 		</style>
 		<link type="text/css" rel="stylesheet" href="/styles/compiled.css" />
 	</head>
 	<body>
 		<p>
-			This rendering is at file level, though it doesn't make it clear it's not the whole
-			file:
+			This manual rendering is at file level, though it doesn't make it clear it's not the whole
+			file (note that manual rendering probably isn't ideal, as it might not keep
+			up to date with the renderer):
 		</p>
 
 		<div class="container">
