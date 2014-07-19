@@ -67,8 +67,7 @@
 				border-top-color: transparent;
 			}
 			div.diff-line + div.diff-line-empty {
-				// @todo Copy what .line has here
-				border-top: 1px solid red;
+				border-top-color: #eeeeee;
 			}
 		}
 
