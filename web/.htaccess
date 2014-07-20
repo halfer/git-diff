@@ -1,0 +1,7 @@
+RewriteEngine On
+
+RewriteCond $1 ^(demo|manual|tests)$
+RewriteRule ^(.*)$ index.php [L]
+
+# The default for Ubuntu is 128M, way too high
+php_value memory_limit 1M
