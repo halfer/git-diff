@@ -8,4 +8,6 @@
 	<a href="/manual">Manual</a>
 	|
 	<a href="/tests">Tests</a>
+	|
+	<a href="/paste">Paste testing</a>
 </div>
