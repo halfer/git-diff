@@ -1,3 +1,9 @@
+<style type="text/css">
+	code {
+		white-space: pre;
+	}
+</style>
+
 <div class="container">
 	<div class="file">
 		<div class="left side">
@@ -7,118 +13,118 @@
 						class="section "
 				>
 					<div class="line diff-line ">
-						<pre> */</pre>
+						<code> */</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>function deletePost(PDO $pdo, $postId)</pre>
+						<code>function deletePost(PDO $pdo, $postId)</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>{</pre>
+						<code>{</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>	$sqls = array(</pre>
+						<code>	$sqls = array(</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		// Delete comments first, to remove the foreign key objection</pre>
+						<code>		// Delete comments first, to remove the foreign key objection</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		&quot;DELETE FROM</pre>
+						<code>		&quot;DELETE FROM</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			comment</pre>
+						<code>			comment</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		WHERE</pre>
+						<code>		WHERE</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			post_id = :id&quot;,</pre>
+						<code>			post_id = :id&quot;,</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		// Now we can delete the post</pre>
+						<code>		// Now we can delete the post</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		&quot;DELETE FROM</pre>
+						<code>		&quot;DELETE FROM</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>			post</pre>
+						<code>			post</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>		WHERE</pre>
+						<code>		WHERE</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			id = :id&quot;,</pre>
+						<code>			id = :id&quot;,</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>	);</pre>
+						<code>	);</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre></pre>
+						<code></code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>	foreach ($sqls as $sql)</pre>
+						<code>	foreach ($sqls as $sql)</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>	{</pre>
+						<code>	{</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		$stmt = $pdo-&gt;prepare($sql);</pre>
+						<code>		$stmt = $pdo-&gt;prepare($sql);</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		if ($stmt === false)</pre>
+						<code>		if ($stmt === false)</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		{</pre>
+						<code>		{</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			throw new Exception('There was a problem preparing this query');</pre>
+						<code>			throw new Exception('There was a problem preparing this query');</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		}</pre>
+						<code>		}</code>
 					</div>
 					<div class="line diff-line ">
-						<pre></pre>
+						<code></code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		$result = $stmt-&gt;execute(</pre>
+						<code>		$result = $stmt-&gt;execute(</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			array('id' =&gt; $postId, )</pre>
+						<code>			array('id' =&gt; $postId, )</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		);</pre>
+						<code>		);</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre></pre>
+						<code></code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		// Don't continue if something went wrong</pre>
+						<code>		// Don't continue if something went wrong</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		if ($result === false)</pre>
+						<code>		if ($result === false)</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		{</pre>
+						<code>		{</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>			break;</pre>
+						<code>			break;</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>		}</pre>
+						<code>		}</code>
 					</div>
 					<div class="line diff-line diff-line-added">
-						<pre>	}</pre>
+						<code>	}</code>
 					</div>
 					<div class="line diff-line ">
-						<pre></pre>
+						<code></code>
 					</div>
 					<div class="line diff-line ">
-						<pre>	return $result !== false;</pre>
+						<code>	return $result !== false;</code>
 					</div>
 					<div class="line diff-line ">
-						<pre>}</pre>
+						<code>}</code>
 					</div>
 					<div class="line diff-line ">
-						<pre></pre>
+						<code></code>
 					</div>
 				</div>
 
