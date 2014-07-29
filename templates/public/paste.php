@@ -4,6 +4,20 @@
 	}
 </style>
 
+<p>
+	This page is to see what HTML is best to support copy and pasting from the browser.
+</p>
+
+<ul>
+	<li>&lt;pre&gt; tags cause double line-breaks in FF when pasted. Can we do something in JS
+		to fix this?</li>
+	<li>Have just one &lt;pre&gt; tag</li>
+	<li><s>&lt;code&gt; tags fix the line-breaks problem, but any tabs or spaces used for indentation
+		are collapsed</s>. This can be fixed in JavaScript by replacing tabs/spaces with non-breaking
+		space entities</li>
+	<li>We could use a table, but urgh!</li>
+</ul>
+
 <div class="container">
 	<div class="file">
 		<div class="left side">
