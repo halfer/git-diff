@@ -9,11 +9,16 @@ $pages[0]->parseDiff($diffs[0]);
 use ilovephp\DiffLine;
 ?>
 
+<?php // jQuery should already be loaded before we load this ?>
+<script type="text/javascript" src="/js/indenter.js"></script>
+
 <p>
 	This manual rendering is at file level, though it doesn't make it clear it's not the whole
 	file (note that manual rendering probably isn't ideal, as it might not keep
-	up to date with the renderer):
+	up to date with the renderer).
 </p>
+
+<p>The JavaScript to fix up tab-indentation is enabled on this page.</p>
 
 <div class="container">
 	<div class="file">
