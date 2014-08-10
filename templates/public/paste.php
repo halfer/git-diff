@@ -3,6 +3,8 @@
 		white-space: pre;
 	}
 </style>
+<?php // jQuery should already be loaded before we load this ?>
+<script type="text/javascript" src="/js/indenter.js"></script>
 
 <p>
 	This page is to see what HTML is best to support copy and pasting from the browser.
@@ -159,7 +161,7 @@ tabs with hard spaces.</p>
 	</div>
 </div>
 
-Demonstration of a single pre tag:
+<p>Demonstration of a single pre tag:</p>
 
 <div class="container">
 	<div class="file">
@@ -175,35 +177,3 @@ Demonstration of a single pre tag:
 		</div>
 	</div>
 </div>
-
-<?php
-/*
- * Swaps tab indents with blocks of hard spaces
- */
-?>
-<script type="text/javascript">
-	$(document).ready(function() {
-		// Set up replacement indent
-		var indentString = '&nbsp;&nbsp;&nbsp;&nbsp;';
-
-		// Iterate across each code block
-		var codeBlocks = $('.container .file .side');
-		codeBlocks.each(function(ord, blockElement) {
-			// Iterate across each line
-			var lines = $(blockElement).find('.line code');
-			lines.each(function(ord, lineElement) {
-				var lineText = $(lineElement).text();
-				var newText = lineText.replace(/^\t+/, '');
-				if (newText.length < lineText.length)
-				{
-					var addSpaces = lineText.length - newText.length;
-					for(var i = 0; i < addSpaces; i++)
-					{
-						newText = indentString + newText;
-					}
-					$(lineElement).html(newText);
-				}
-			});
-		});
-	});
-</script>
