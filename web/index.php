@@ -24,6 +24,7 @@ $page = preg_replace('/[^a-z]+/', '', $_SERVER['REQUEST_URI']);
 				max-width: 1000px;
 			}
 		</style>
+		<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
 		<link type="text/css" rel="stylesheet" href="/styles/compiled.css" />
 	</head>
 	<body>

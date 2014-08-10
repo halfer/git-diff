@@ -178,11 +178,9 @@ Demonstration of a single pre tag:
 
 <?php
 /*
- * @todo Remove jQuery, set up a demo that uses a CDN version - and then systems that employ
- * this can just load jQuery themselves
+ * Swaps tab indents with blocks of hard spaces
  */
 ?>
-<script type="text/javascript" src="http://php-tutorial-website.local/js/jquery-1.10.2.min.js"></script>
 <script type="text/javascript">
 	$(document).ready(function() {
 		// Set up replacement indent
