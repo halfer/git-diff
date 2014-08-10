@@ -11,7 +11,8 @@ $page = preg_replace('/[^a-z]+/', '', $_SERVER['REQUEST_URI']);
 ?>
 <html>
 	<head>
-		<title></title>
+		<title>Diff demo page</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<style type="text/css">
 			/* This is the use-case specific container */
 			.container {
