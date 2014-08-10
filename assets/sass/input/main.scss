@@ -48,8 +48,10 @@
 		.line {
 			border-top: 1px solid #eeeeee;
 		}
-		.line pre {
+		.line code {
 			height: 1.2em;
+			display: block;
+			white-space: pre;
 		}
 		
 		.diff-content {
@@ -99,7 +101,7 @@
 		}
 	}
 
-	pre {
+	code {
 		margin: 0;
 	}
 }

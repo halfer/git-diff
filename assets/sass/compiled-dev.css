@@ -35,8 +35,10 @@
         border-top-color: transparent; }
     .file .side .line {
       border-top: 1px solid #eeeeee; }
-    .file .side .line pre {
-      height: 1.2em; }
+    .file .side .line code {
+      height: 1.2em;
+      display: block;
+      white-space: pre; }
     .file .side .diff-content {
       /* Useful for narrow sides that would normally take up less than 50% width */
       width: 100%; }
@@ -64,5 +66,5 @@
       .file .side .section div:first-child,
       .file .side .line-numbers-section div:first-child {
         border-top: none; }
-  .file pre {
+  .file code {
     margin: 0; }
