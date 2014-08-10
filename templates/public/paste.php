@@ -1,8 +1,3 @@
-<style type="text/css">
-	code {
-		white-space: pre;
-	}
-</style>
 <?php // jQuery should already be loaded before we load this ?>
 <script type="text/javascript" src="/js/indenter.js"></script>
 
