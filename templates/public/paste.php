@@ -167,3 +167,36 @@ Demonstration of a single pre tag:
 	</div>
 </div>
 
+<?php
+/*
+ * @todo Remove jQuery, set up a demo that uses a CDN version - and then systems that employ
+ * this can just load jQuery themselves
+ */
+?>
+<script type="text/javascript" src="http://php-tutorial-website.local/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		// Set up replacement indent
+		var indentString = '&nbsp;&nbsp;&nbsp;&nbsp;';
+
+		// Iterate across each code block
+		var codeBlocks = $('.container .file .side');
+		codeBlocks.each(function(ord, blockElement) {
+			// Iterate across each line
+			var lines = $(blockElement).find('.line code');
+			lines.each(function(ord, lineElement) {
+				var lineText = $(lineElement).text();
+				var newText = lineText.replace(/^\t+/, '');
+				if (newText.length < lineText.length)
+				{
+					var addSpaces = lineText.length - newText.length;
+					for(var i = 0; i < addSpaces; i++)
+					{
+						newText = indentString + newText;
+					}
+					$(lineElement).html(newText);
+				}
+			});
+		});
+	});
+</script>
