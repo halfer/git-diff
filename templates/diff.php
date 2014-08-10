@@ -16,11 +16,11 @@
 			<?php foreach ($section->getLinesForSide($side) as $line): ?>
 				<?php if ($line instanceof ilovephp\DiffLine): ?>
 					<div class="line diff-line <?php echo $line->getTypeName() ?>">
-						<pre><?php echo htmlentities($line->getText()) ?></pre>
+						<code><?php echo htmlentities($line->getText()) ?></code>
 					</div>
 				<?php else: ?>
 					<div class="line diff-line-empty">
-						<pre></pre>
+						<code></code>
 					</div>
 				<?php endif ?>
 			<?php endforeach ?>

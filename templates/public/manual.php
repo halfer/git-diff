@@ -22,11 +22,11 @@ use ilovephp\DiffLine;
 				<?php foreach ($pages[0]->getLeftLineNumbers() as $number): ?>
 					<?php if ($number): ?>
 						<div class="line line-number-line">
-							<pre><?php echo $number ?></pre>
+							<code><?php echo $number ?></code>
 						</div>
 					<?php else: ?>
 						<div class="line line-number-empty">
-							<pre>&nbsp;</pre>
+							<code>&nbsp;</code>
 						</div>
 					<?php endif ?>
 				<?php endforeach ?>
@@ -35,11 +35,11 @@ use ilovephp\DiffLine;
 				<?php foreach ($pages[0]->getLeftLines() as $line): ?>
 					<?php if ($line instanceof DiffLine): ?>
 						<div class="line diff-line <?php echo $line->getTypeName() ?>">
-							<pre><?php echo htmlentities($line->getText()) ?></pre>
+							<code><?php echo htmlentities($line->getText()) ?></code>
 						</div>
 					<?php else: ?>
 						<div class="line diff-line-empty">
-							<pre></pre>
+							<code></code>
 						</div>
 					<?php endif ?>
 				<?php endforeach ?>
@@ -50,11 +50,11 @@ use ilovephp\DiffLine;
 				<?php foreach ($pages[0]->getRightLineNumbers() as $number): ?>
 					<?php if ($number): ?>
 						<div class="line line-number-line">
-							<pre><?php echo $number ?></pre>
+							<code><?php echo $number ?></code>
 						</div>
 					<?php else: ?>
 						<div class="line line-number-empty">
-							<pre>&nbsp;</pre>
+							<code>&nbsp;</code>
 						</div>
 					<?php endif ?>
 				<?php endforeach ?>
@@ -63,11 +63,11 @@ use ilovephp\DiffLine;
 				<?php foreach ($pages[0]->getRightLines() as $line): ?>
 					<?php if ($line instanceof DiffLine): ?>
 						<div class="line diff-line <?php echo $line->getTypeName() ?>">
-							<pre><?php echo htmlentities($line->getText()) ?></pre>
+							<code><?php echo htmlentities($line->getText()) ?></code>
 						</div>
 					<?php else: ?>
 						<div class="line diff-line-empty">
-							<pre></pre>
+							<code></code>
 						</div>
 					<?php endif ?>
 				<?php endforeach ?>

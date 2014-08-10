@@ -15,11 +15,11 @@
 			<?php foreach ($section->getLineNumbersForSide($side) as $number): ?>
 				<?php if ($number): ?>
 					<div class="line line-number-line">
-						<pre><?php echo $number ?></pre>
+						<code><?php echo $number ?></code>
 					</div>
 				<?php else: ?>
 					<div class="line line-number-empty">
-						<pre>&nbsp;</pre>
+						<code>&nbsp;</code>
 					</div>
 				<?php endif ?>
 			<?php endforeach ?>
