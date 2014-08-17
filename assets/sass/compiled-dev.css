@@ -10,6 +10,8 @@
     vertical-align: top;
     display: table-cell;
     width: 50%;
+    /* This sets up an inner 'table' container for nested cells. Not sure it is necessary -
+    	would we get an anonymous table in the DOM if it is missed out? */
     /* By default, we'll not render a section rule-off at the bottom, even if there is more */
     /* Invisible side borders tend to eat into the visible bottom border, and we're really only
     	concerned with maintaining a consistent height with the line numbers anyway */
@@ -17,6 +19,8 @@
     /* Sections use bottom borders not top ones (@todo this probably needs fixing) */ }
     .file .side.left {
       border-right: 1px solid silver; }
+    .file .side .inner-side {
+      display: table; }
     .file .side .line-numbers-section {
       border-top: 1px solid rgba(0, 0, 0, 0);
       border-bottom: 4px solid silver; }

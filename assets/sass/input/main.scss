@@ -18,6 +18,12 @@
 		&.right {
 		}
 
+		/* This sets up an inner 'table' container for nested cells. Not sure it is necessary -
+			would we get an anonymous table in the DOM if it is missed out? */
+		.inner-side {
+			display: table;
+		}
+
 		.line-numbers-section {
 			border-top: 1px solid rgba(0, 0, 0, 0);
 			border-bottom: 4px solid silver;
