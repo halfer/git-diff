@@ -1,5 +1,10 @@
 <?php // jQuery should already be loaded before we load this ?>
 <script type="text/javascript" src="/js/indenter.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.container').gitDiffIndentTabs();
+	});
+</script>
 
 <p>
 	This page is to see what HTML is best to support copy and pasting from the browser.

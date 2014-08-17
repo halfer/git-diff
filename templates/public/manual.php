@@ -11,6 +11,11 @@ use ilovephp\DiffLine;
 
 <?php // jQuery should already be loaded before we load this ?>
 <script type="text/javascript" src="/js/indenter.js"></script>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.container').gitDiffIndentTabs();
+	});
+</script>
 
 <p>
 	This manual rendering is at file level, though it doesn't make it clear it's not the whole
