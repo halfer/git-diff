@@ -16,11 +16,8 @@
 		return this.each(function() {
 			var lines = $(this).find(options.codeCss);
 			lines.each(function(ord, lineElement) {
-				// Grab the text and make any HTML safe
-				var
-					rawText = $(lineElement).text(),
-					lineText = jQuery('<div/>').text(rawText).html()
-				;
+				// Grab the text in HTML mode
+				var lineText = $(lineElement).html();
 				var newText = lineText.replace(/^\t+/, '');
 				if (newText.length < lineText.length)
 				{
