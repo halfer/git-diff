@@ -8,13 +8,14 @@
 	width: 100%;
 
 	.side {
-		display: table-cell;
 		vertical-align: top;
+		display: table-cell;
+		width: 50%;
 
 		&.left {
 			border-right: 1px solid silver;
 		}
-		.right {
+		&.right {
 		}
 
 		.line-numbers-section {
@@ -30,7 +31,8 @@
 		}
 
 		.line-numbers {
-			float: left;
+			display: table-cell;
+			vertical-align: top;
 			text-align: right;
 			color: silver;
 
@@ -55,13 +57,18 @@
 		}
 		
 		.diff-content {
+			display: table-cell;
+
 			/* Useful for narrow sides that would normally take up less than 50% width */
 			width: 100%;
 
 			.diff-line {
 				padding-left: 2px;
+				display: table;
+				width: 100%;
+				box-sizing: border-box; // Squash the background colour inside the border
 			}
-
+			
 			.diff-line-deleted {
 				background-color: #ffe0e0;
 			}
