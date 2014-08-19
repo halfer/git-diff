@@ -5,18 +5,18 @@ QUnit.test(
 			// Get panels
 			var
 				lPanel = $(this).find('.left.side'),
-				rPanel = $(this).find('.right.side'),
+				rPanel = $(this).find('.right.side');
 
-				lPositionY = lPanel.position().top,
-				rPositionY = rPanel.position().top;
+			// Always read positions when they are needed, as the QUnit logging can make
+			// positions go stale quickly
 			assert.equal(
-				lPositionY, rPositionY,
+				lPanel.position().top, rPanel.position().top,
 				'Check the vertical alignment of the L and R panels'
 			);
 
 			var cPositionY = $(this).position().top;
 			assert.equal(
-				cPositionY, lPositionY,
+				cPositionY, lPanel.position().top,
 				'Check the top of the panels in relation to the container'
 			);
 
