@@ -21,7 +21,7 @@ foreach ($files as $ord => $file)
 
 <h2>Unit test data</h2>
 
-<div id="qunit"></div>
+<div id="qunit" style="max-width: 600px;"></div>
 
 <?php for ($fileNo = 0; $fileNo < count($files); $fileNo++): ?>
 
@@ -35,6 +35,6 @@ foreach ($files as $ord => $file)
 
 <?php endfor ?>
 
-<link rel="stylesheet" href="/styles/qunit-1.14.0.css">
-<script type="text/javascript" src="/js/qunit-1.14.0.js"></script>
+<link rel="stylesheet" href="/styles/qunit-1.15.0.css">
+<script type="text/javascript" src="/js/qunit-1.15.0.js"></script>
 <script type="text/javascript" src="/js/tests.js"></script>
