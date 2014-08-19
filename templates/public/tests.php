@@ -21,6 +21,8 @@ foreach ($files as $ord => $file)
 
 <h2>Unit test data</h2>
 
+<div id="qunit"></div>
+
 <?php for ($fileNo = 0; $fileNo < count($files); $fileNo++): ?>
 
 	<p>Graphical diff:</p>
@@ -32,3 +34,7 @@ foreach ($files as $ord => $file)
 	<pre><?php echo htmlspecialchars($diffs[$fileNo]) ?></pre>
 
 <?php endfor ?>
+
+<link rel="stylesheet" href="/styles/qunit-1.14.0.css">
+<script type="text/javascript" src="/js/qunit-1.14.0.js"></script>
+<script type="text/javascript" src="/js/tests.js"></script>
