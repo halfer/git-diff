@@ -20,26 +20,30 @@ QUnit.test(
 				'Check the top of the panels in relation to the container'
 			);
 
-			// Check the height of the two panels
 			var
 				lHeight = lPanel.height(),
 				rHeight = rPanel.height();
-			assert.equal(lHeight, rHeight);
+			assert.equal(
+				lHeight, rHeight,
+				'Check the height of the two panels'
+			);
 
-			// Check the left panel is on the left side
 			var
 				lPositionX = lPanel.position().left,
 				cPositionX = $(this).position().left;
-			assert.equal(lPositionX, cPositionX);
+			assert.equal(
+				lPositionX, cPositionX,
+				'Check the left panel is on the left side'
+			);
 
-			// Check that the right panel is on the right side. The ceil() is necessary
-			// at least in FF30/Ubuntu to get equality :)
+			// The ceil() is necessary at least in FF30/Ubuntu to get equality :)
 			var
 				rPositionX = rPanel.position().left + lPanel.width()
 				cPositionXR = $(this).position().left + $(this).width();
 			assert.equal(
 				Math.ceil(rPositionX),
-				Math.ceil(cPositionXR)
+				Math.ceil(cPositionXR),
+				'Check that the right panel is on the right side'
 			);
 		});
 	}
