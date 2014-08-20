@@ -13,6 +13,7 @@ $baseUrl = strpos($_SERVER['REQUEST_URI'], '?') !== false ?
 // Use only a-z chars for page name
 $page = preg_replace('/[^a-z]+/', '', $baseUrl);
 ?>
+<!DOCTYPE html>
 <html>
 	<head>
 		<title>Diff demo page</title>
