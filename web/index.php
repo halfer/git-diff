@@ -6,8 +6,12 @@ require_once $root . '/lib/DiffPage.php';
 require_once $root . '/lib/DiffSection.php';
 require_once $root . '/lib/DiffLine.php';
 
+// Ignore query string
+$baseUrl = strpos($_SERVER['REQUEST_URI'], '?') !== false ?
+	substr($_SERVER['REQUEST_URI'], 0, strpos($_SERVER['REQUEST_URI'], '?')) :
+	$_SERVER['REQUEST_URI'];
 // Use only a-z chars for page name
-$page = preg_replace('/[^a-z]+/', '', $_SERVER['REQUEST_URI']);
+$page = preg_replace('/[^a-z]+/', '', $baseUrl);
 ?>
 <html>
 	<head>
