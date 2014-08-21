@@ -95,21 +95,24 @@ QUnit.test(
 );
 
 QUnit.test(
-	"Code line alignment",
+	"Code and line number alignment",
 	function(assert) {
-		var descriptions = {
-			'diff-content': 'Check that code lines within a file have the same left position',
-			'line-numbers': 'Check that line numbers within a file have the same left position'
-		};
-		$.each(descriptions, function(className, description) {
-			$('.file .side .' + className).each(function() {
-				checkLinesProperty(
-					assert,
-					$(this),
-					description,
-					'position().left'
-				);
-			});
+		$('.file .side .diff-content').each(function() {
+			checkLinesProperty(
+				assert,
+				$(this),
+				'Check that code lines within a file have the same left position',
+				'position().left'
+			);
+		});
+
+		$('.file .side .line-numbers').each(function() {
+			checkLinesProperty(
+				assert,
+				$(this),
+				'Check that line numbers within a file have the same left position',
+				'position().left'
+			);
 		});
 	}
 );
