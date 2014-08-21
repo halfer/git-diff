@@ -49,35 +49,47 @@ QUnit.test(
 	}
 );
 
+/**
+ * Checks that the specified property on all lines is the same
+ * 
+ * @todo Is there a standard approach to taking helper functions out of global space?
+ */
+function checkLinesProperty(assert, lineContainer, description, propertyString) {
+	// Check that all lines within a file have the same
+	var
+		oldProperty = null,
+		ok = true;
+	lineContainer.find('.line').each(function() {
+		// A nice generic way to read a (possibly chained) method/property
+		var lineProperty = eval('$(this).' + propertyString);
+		if (oldProperty !== null) {
+			if (oldProperty !== lineProperty) {
+				// Only assert failure once
+				ok = false;
+				assert.equal(oldProperty, lineProperty, description);
+				return false; // break
+			}
+		}
+		oldProperty = lineProperty;
+	});
+
+	// Only assert success once
+	if (ok) {
+		assert.ok(true, description);
+	}
+}
+
 QUnit.test(
 	"Code line height",
 	function(assert) {
 		$('.file').each(function() {
 			// Check that all lines within a file are the same height
-			var
-				oldHeight = null,
-				ok = true;
-			$(this).find('.line').each(function() {
-				var lineHeight = $(this).height();
-				if (oldHeight !== null) {
-					if (oldHeight !== lineHeight) {
-						// Only assert failure once
-						ok = false;
-						assert.equal(
-							oldHeight,
-							lineHeight,
-							'Check that all lines within a file are the same height'
-						);
-						return false; // break
-					}
-				}
-				oldHeight = lineHeight;
-			});
-
-			// Only assert success once
-			if (ok) {
-				assert.ok(true, 'Check that all lines within a file are the same height');
-			}
+			return checkLinesProperty(
+				assert,
+				$(this),
+				'Check that all lines within a file are the same height',
+				'height()'
+			);
 		});
 	}
 );
@@ -91,26 +103,12 @@ QUnit.test(
 		};
 		$.each(descriptions, function(className, description) {
 			$('.file .side .' + className).each(function() {
-				var
-					oldLeft = null,
-					ok = true;
-				$(this).find('.line').each(function() {
-					var lineLeft = $(this).position().left;
-					if (oldLeft !== null) {
-						if (oldLeft !== lineLeft) {
-							// Only assert failure once
-							ok = false;
-							assert.equal(oldLeft, lineLeft, description);
-							return false; // break
-						}
-					}
-					oldLeft = lineLeft;
-				});
-
-				// Only assert success once
-				if (ok) {
-					assert.ok(true, description);
-				}
+				checkLinesProperty(
+					assert,
+					$(this),
+					description,
+					'position().left'
+				);
 			});
 		});
 	}
