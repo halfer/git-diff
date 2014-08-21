@@ -95,7 +95,7 @@ QUnit.test(
 );
 
 QUnit.test(
-	"Code and line number alignment",
+	"Code and line number left alignment",
 	function(assert) {
 		$('.file .side .diff-content').each(function() {
 			checkLinesProperty(
@@ -113,6 +113,36 @@ QUnit.test(
 				'Check that line numbers within a file have the same left position',
 				'position().left'
 			);
+		});
+	}
+);
+
+// @todo Add the same for line numbers too
+QUnit.test(
+	"Code lines vertical alignment",
+	function(assert) {
+		var description = 'Check L and R lines are at the same vertical position';
+		$('.file').each(function() {
+			var
+				file = $(this);
+				ok = true;
+			file.find('.left.side .diff-content .line').each(function(index) {
+				var
+					leftLine = $(this),
+					// Retrieve the corresponding line on the right-hand side
+					rightLine = file.find('.left.side .diff-content .line').eq(index),
+					leftTop = leftLine.position().top,
+					rightTop = $(rightLine).position().top;
+				// Only assert failure once
+				if (leftTop !== rightTop) {
+					ok = false;
+					assert.equal(leftTop, rightTop, description);				
+				}
+			});
+			// Only assert success once
+			if (ok) {
+				assert.ok(true, description);
+			}
 		});
 	}
 );
