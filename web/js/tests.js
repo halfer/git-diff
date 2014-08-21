@@ -54,22 +54,29 @@ QUnit.test(
 	function(assert) {
 		$('.file').each(function() {
 			// Check that all lines within a file are the same height
-			var oldHeight = null;
+			var
+				oldHeight = null,
+				ok = true;
 			$(this).find('.line').each(function() {
 				var lineHeight = $(this).height();
 				if (oldHeight !== null) {
-					assert.equal(
-						oldHeight,
-						lineHeight,
-						'Check that all lines within a file are the same height'
-					);
-					
 					if (oldHeight !== lineHeight) {
+						// Only assert failure once
+						ok = false;
+						assert.equal(
+							oldHeight,
+							lineHeight,
+							'Check that all lines within a file are the same height'
+						);
 						return false; // break
 					}
 				}
 				oldHeight = lineHeight;
 			});
+			// Only assert success once
+			if (ok) {
+				assert.ok(true, 'Check that all lines within a file are the same height');
+			}
 		});
 	}
 );
