@@ -58,7 +58,15 @@ QUnit.test(
 			$(this).find('.line').each(function() {
 				var lineHeight = $(this).height();
 				if (oldHeight !== null) {
-					assert.equal(oldHeight, lineHeight);
+					assert.equal(
+						oldHeight,
+						lineHeight,
+						'Check that all lines within a file are the same height'
+					);
+					
+					if (oldHeight !== lineHeight) {
+						return false; // break
+					}
 				}
 				oldHeight = lineHeight;
 			});
