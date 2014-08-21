@@ -59,11 +59,16 @@ foreach ($files as $ord => $file)
 				max-width: 1000px;
 			}
 		</style>
+		<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
+		<link type="text/css" rel="stylesheet" href="/styles/main.css" />
 		<link type="text/css" rel="stylesheet" href="/styles/compiled.css" />
 	</head>
 	<body>
 
 		<?php include $root . '/templates/public/menu.php' ?>
+
+		<?php include $root . '/templates/public/toggle.html' ?>
 
 		<p>
 			This renders by section, and so does a better job of showing it's not the whole
@@ -75,11 +80,13 @@ foreach ($files as $ord => $file)
 			<?php $pages[0]->render() ?>
 		</div>
 
-		<p>
-			This is the raw diff:
-		</p>
+		<div class="raw-diff">
+			<p>
+				This is the raw diff:
+			</p>
 
-		<pre><?php echo htmlspecialchars($diffs[0]) ?></pre>
+			<pre><?php echo htmlspecialchars($diffs[0]) ?></pre>
+		</div>
 
 		<p>
 			This is a more complex diff, so copying it here to try it:
@@ -89,11 +96,13 @@ foreach ($files as $ord => $file)
 			<?php $pages[1]->render() ?>
 		</div>
 
-		<p>
-			This is the raw diff:
-		</p>
+		<div class="raw-diff">
+			<p>
+				This is the raw diff:
+			</p>
 
-		<pre><?php echo htmlspecialchars($diffs[1]) ?></pre>
+			<pre><?php echo htmlspecialchars($diffs[1]) ?></pre>
+		</div>
 
 		<?php // So we can see the end of the demo better ?>
 		<p style="clear: both;">&nbsp;</p>

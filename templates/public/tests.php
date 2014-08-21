@@ -21,17 +21,21 @@ foreach ($files as $ord => $file)
 
 <h2>Unit test data</h2>
 
-<div id="qunit" style="max-width: 600px;"></div>
+<?php include $root . '/templates/public/toggle.html' ?>
+
+<div id="qunit" style="max-width: 600px; float: right;"></div>
 
 <?php for ($fileNo = 0; $fileNo < count($files); $fileNo++): ?>
 
-	<p>Graphical diff:</p>
+	<p>Graphical diff #<?php echo $fileNo ?>:</p>
 	<div id="container-<?php echo $fileNo ?>" class="container">
 		<?php $pages[$fileNo]->render() ?>
 	</div>
 
-	<p>Raw diff:</p>
-	<pre><?php echo htmlspecialchars($diffs[$fileNo]) ?></pre>
+	<div class="raw-diff">
+		<p>Raw diff:</p>
+		<pre><?php echo htmlspecialchars($diffs[$fileNo]) ?></pre>
+	</div>
 
 <?php endfor ?>
 

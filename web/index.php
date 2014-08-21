@@ -30,7 +30,11 @@ $page = preg_replace('/[^a-z]+/', '', $baseUrl);
 				max-width: 1000px;
 			}
 		</style>
+		<!-- This is for the web site itself -->
 		<script type="text/javascript" src="/js/jquery-1.10.2.min.js"></script>
+		<script type="text/javascript" src="/js/main.js"></script>
+		<link type="text/css" rel="stylesheet" href="/styles/main.css" />
+		<!-- The compressed CSS file is for the diff library -->
 		<link type="text/css" rel="stylesheet" href="/styles/compiled.css" />
 	</head>
 	<body>
