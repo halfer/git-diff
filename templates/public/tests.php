@@ -26,7 +26,7 @@ foreach ($files as $ord => $file)
 <?php for ($fileNo = 0; $fileNo < count($files); $fileNo++): ?>
 
 	<p>Graphical diff:</p>
-	<div class="container">
+	<div id="container-<?php echo $fileNo ?>" class="container">
 		<?php $pages[$fileNo]->render() ?>
 	</div>
 

@@ -80,3 +80,49 @@ QUnit.test(
 		});
 	}
 );
+
+QUnit.test(
+	'Specific diff tests',
+	function(assert) {
+		var countInnerClasses = function(innerCss, indexes, description) {
+			$.each(
+				indexes,
+				function(index, expectedCount) {
+					assert.equal(
+						$('#container-' + index + ' ' + innerCss).length,
+						expectedCount,
+						description + ' for test #' + index
+					);
+				}
+			);
+		};
+
+		// Count insertions
+		countInnerClasses(
+			'.diff-line-added',
+			new Array(3, 0, 1, 1, 3),
+			'Check number of insertions'
+		);
+
+		// Count deletions
+		countInnerClasses(
+			'.diff-line-deleted',
+			new Array(0, 2, 1, 1, 3),
+			'Check number of deletions'
+		);
+
+		// Left-empties
+		countInnerClasses(
+			'.left .diff-line-empty',
+			new Array(3, 0, 1, 0, 0),
+			'Check number of empty lines on the left'
+		);
+
+		// Right-empties
+		countInnerClasses(
+			'.right .diff-line-empty',
+			new Array(0, 2, 1, 0, 0),
+			'Check number of empty lines on the right'
+		);
+	}
+);
