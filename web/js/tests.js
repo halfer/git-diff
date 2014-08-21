@@ -50,7 +50,7 @@ QUnit.test(
 );
 
 QUnit.test(
-	"Line height",
+	"Code line height",
 	function(assert) {
 		$('.file').each(function() {
 			// Check that all lines within a file are the same height
@@ -73,10 +73,45 @@ QUnit.test(
 				}
 				oldHeight = lineHeight;
 			});
+
 			// Only assert success once
 			if (ok) {
 				assert.ok(true, 'Check that all lines within a file are the same height');
 			}
+		});
+	}
+);
+
+QUnit.test(
+	"Code line alignment",
+	function(assert) {
+		var descriptions = {
+			'diff-content': 'Check that code lines within a file have the same left position',
+			'line-numbers': 'Check that line numbers within a file have the same left position'
+		};
+		$.each(descriptions, function(className, description) {
+			$('.file .side .' + className).each(function() {
+				var
+					oldLeft = null,
+					ok = true;
+				$(this).find('.line').each(function() {
+					var lineLeft = $(this).position().left;
+					if (oldLeft !== null) {
+						if (oldLeft !== lineLeft) {
+							// Only assert failure once
+							ok = false;
+							assert.equal(oldLeft, lineLeft, description);
+							return false; // break
+						}
+					}
+					oldLeft = lineLeft;
+				});
+
+				// Only assert success once
+				if (ok) {
+					assert.ok(true, description);
+				}
+			});
 		});
 	}
 );
