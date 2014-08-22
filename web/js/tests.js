@@ -141,7 +141,7 @@ QUnit.test(
 				var
 					leftLine = $(this),
 					// Retrieve the corresponding line on the right-hand side
-					rightLine = file.find('.left.side .diff-content .line').eq(index),
+					rightLine = file.find('.right.side .diff-content .line').eq(index),
 					leftTop = leftLine.position().top,
 					rightTop = $(rightLine).position().top;
 				// Only assert failure once
