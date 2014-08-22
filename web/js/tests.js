@@ -53,15 +53,20 @@ QUnit.test(
  * Checks that the specified property on all lines is the same
  * 
  * @todo Is there a standard approach to taking helper functions out of global space?
+ * 
+ * @param assert
+ * @param lineContainer
+ * @param description
+ * @param propertyReader A func taking a line jQuery object and returns the property value of interest
  */
-function checkLinesProperty(assert, lineContainer, description, propertyString) {
+function checkLinesProperty(assert, lineContainer, description, propertyReader) {
 	// Check that all lines within a file have the same
 	var
 		oldProperty = null,
 		ok = true;
 	lineContainer.find('.line').each(function() {
 		// A nice generic way to read a (possibly chained) method/property
-		var lineProperty = eval('$(this).' + propertyString);
+		var lineProperty = propertyReader($(this));
 		if (oldProperty !== null) {
 			if (oldProperty !== lineProperty) {
 				// Only assert failure once
@@ -88,7 +93,9 @@ QUnit.test(
 				assert,
 				$(this),
 				'Check that all lines within a file are the same height',
-				'height()'
+				function(lineItem) {
+					return lineItem.height();
+				}
 			);
 		});
 	}
@@ -97,12 +104,16 @@ QUnit.test(
 QUnit.test(
 	"Code and line number left alignment",
 	function(assert) {
+		function getLeftPosition(lineItem) {
+			return lineItem.position().left;
+		}
+
 		$('.file .side .diff-content').each(function() {
 			checkLinesProperty(
 				assert,
 				$(this),
 				'Check that code lines within a file have the same left position',
-				'position().left'
+				getLeftPosition
 			);
 		});
 
@@ -111,7 +122,7 @@ QUnit.test(
 				assert,
 				$(this),
 				'Check that line numbers within a file have the same left position',
-				'position().left'
+				getLeftPosition
 			);
 		});
 	}
