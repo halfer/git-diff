@@ -128,27 +128,44 @@ QUnit.test(
 	}
 );
 
-// @todo Add the same for line numbers too
 QUnit.test(
 	"Code lines vertical alignment",
 	function(assert) {
-		var description = 'Check L and R lines are at the same vertical position';
+		function checkEquality(assert, description, value1, value2) {
+			var ok = true;
+
+			// Only assert failure once
+			if (value1 !== value2) {
+				ok = false;
+				assert.equal(value1, value2, description);				
+			}
+
+			return ok;
+		}
+		var description = 'Check L and R code and number lines are at the same vertical position';
 		$('.file').each(function() {
 			var
 				file = $(this);
 				ok = true;
 			file.find('.left.side .diff-content .line').each(function(index) {
 				var
+					// Here are the left/right code/line elements
 					leftLine = $(this),
-					// Retrieve the corresponding line on the right-hand side
 					rightLine = file.find('.right.side .diff-content .line').eq(index),
+					leftNumber = file.find('.left.side .line-numbers .line').eq(index),
+					rightNumber = file.find('.right.side .line-numbers .line').eq(index),
+					// Here's their top positions
 					leftTop = leftLine.position().top,
-					rightTop = $(rightLine).position().top;
-				// Only assert failure once
-				if (leftTop !== rightTop) {
-					ok = false;
-					assert.equal(leftTop, rightTop, description);				
-				}
+					rightTop = $(rightLine).position().top,
+					leftNumberTop = leftNumber.position().top,
+					rightNumberTop = rightNumber.position().top
+				;
+				
+				// Check each of the top properties
+				if (!checkEquality(assert, description, leftTop, rightTop)) ok = false;
+				if (!checkEquality(assert, description, leftTop, leftNumberTop)) ok = false;
+				if (!checkEquality(assert, description, leftTop, rightNumberTop)) ok = false;
+				if (!ok) return false;
 			});
 			// Only assert success once
 			if (ok) {
