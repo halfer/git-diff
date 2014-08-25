@@ -22,6 +22,8 @@
 			would we get an anonymous table in the DOM if it is missed out? */
 		.inner-side {
 			display: table;
+			/* The full width is necessary for when line numbers are turned off */
+			width: 100%;
 		}
 
 		.line-numbers-section {

@@ -20,7 +20,9 @@
     .file .side.left {
       border-right: 1px solid silver; }
     .file .side .inner-side {
-      display: table; }
+      display: table;
+      /* The full width is necessary for when line numbers are turned off */
+      width: 100%; }
     .file .side .line-numbers-section {
       border-top: 1px solid rgba(0, 0, 0, 0);
       border-bottom: 4px solid silver; }
