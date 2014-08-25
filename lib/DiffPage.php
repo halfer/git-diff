@@ -9,6 +9,7 @@ class DiffPage
 
 	protected $sections = array();
 	protected $forceStatus = null;
+	protected $enableLineNumbers = true;
 
 	public function parseDiff($diff, $forceStatus = null)
 	{
@@ -85,7 +86,10 @@ class DiffPage
 		$page = $this;
 		$isFullWidth = (boolean) $this->forceStatus;
 
-		require $this->getRoot() . '/templates/line-numbers.php';
+		if ($this->getEnableLineNumbers())
+		{
+			require $this->getRoot() . '/templates/line-numbers.php';
+		}
 		require $this->getRoot() . '/templates/diff.php';
 	}
 
@@ -146,6 +150,16 @@ class DiffPage
 		}
 
 		return $numbers;		
+	}
+
+	public function setEnableLineNumbers($enableLineNumbers)
+	{
+		$this->enableLineNumbers = $enableLineNumbers;
+	}
+
+	protected function getEnableLineNumbers()
+	{
+		return $this->enableLineNumbers;
 	}
 
 	protected function getRoot()
