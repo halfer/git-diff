@@ -184,6 +184,43 @@ QUnit.test(
 );
 
 QUnit.test(
+	'Check diffs without line numbers use full width',
+	function(assert) {
+		$('.file').each(function() {
+			var
+				description = 'Check diffs without line numbers use full width',
+				lineNumberCount = $(this).find('.line-numbers').length,
+				sideWidth,
+				ok = true;
+
+			// Only check diffs that have no line numbers
+			if (lineNumberCount === 0) {
+				$(this).find('.line.diff-line').each(function() {
+					// The -2 accounts for the borders
+					sideWidth = $(this).parents('.side').width() - 2;
+					if ($(this).width() !== sideWidth) {
+						assert.equal(
+							sideWidth,
+							$(this).width(),
+							description
+						);
+						ok = false;
+						return false;
+					}
+				});
+
+				// Only assert success once
+				if (ok) {
+					assert.ok(true, description);
+				} else {
+					return false;
+				}
+			}
+		});
+	}
+);
+
+QUnit.test(
 	'Specific diff tests',
 	function(assert) {
 		var countInnerClasses = function(innerCss, indexes, description) {
