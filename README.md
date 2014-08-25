@@ -7,6 +7,7 @@ This is a simple PHP library to render Git diff output as `div`-based HTML outpu
 * Line numbering (can be turned off)
 * Sections without changes are indicated
 * CSS output is easily restyled
+* A suite of browser-based tests using jQuery's QUnit
 
 A demo file is included, or you can simply do something like this:
 
@@ -24,5 +25,10 @@ A demo file is included, or you can simply do something like this:
 
     // Render it here
     $gitDiff->render();
+
+Requires PHP 5.3 on later.
+
+I'm testing against latest Firefox/Ubuntu, but would like all major latest browsers to work. Please
+let me know if any tests fail in your browser, or a diff rendering doesn't look right.
 
 License is GPL2 or later.
