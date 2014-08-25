@@ -38,6 +38,18 @@ foreach ($files as $ord => $file)
 	</div>
 
 <?php endfor ?>
+	
+<p>Graphical diff #4, but without line numbers:</p>
+
+<div id="container-5" class="container">
+	<?php $pages[4]->setEnableLineNumbers(false) ?>
+	<?php $pages[4]->render() ?>
+</div>
+
+<div class="raw-diff">
+	<p>Raw diff:</p>
+	<pre><?php echo htmlspecialchars($diffs[4]) ?></pre>
+</div>
 
 <link rel="stylesheet" href="/styles/qunit-1.15.0.css">
 <script type="text/javascript" src="/js/qunit-1.15.0.js"></script>

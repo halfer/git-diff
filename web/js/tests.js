@@ -157,14 +157,22 @@ QUnit.test(
 					// Here's their top positions
 					leftTop = leftLine.position().top,
 					rightTop = $(rightLine).position().top,
-					leftNumberTop = leftNumber.position().top,
-					rightNumberTop = rightNumber.position().top
+					// We don't know if line numbers have been rendered at this point
+					leftNumberTop,
+					rightNumberTop
 				;
 				
-				// Check each of the top properties
+				// Check the top position of code lines
 				if (!checkEquality(assert, description, leftTop, rightTop)) ok = false;
-				if (!checkEquality(assert, description, leftTop, leftNumberTop)) ok = false;
-				if (!checkEquality(assert, description, leftTop, rightNumberTop)) ok = false;
+
+				// Only check line numbers if they are present
+				if (leftNumber.length && rightNumber.length) {
+					leftNumberTop = leftNumber.position().top;
+					rightNumberTop = rightNumber.position().top;
+					if (!checkEquality(assert, description, leftTop, leftNumberTop)) ok = false;
+					if (!checkEquality(assert, description, leftTop, rightNumberTop)) ok = false;
+				}
+
 				if (!ok) return false;
 			});
 			// Only assert success once
