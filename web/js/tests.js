@@ -36,12 +36,13 @@ QUnit.test(
 				'Check the left panel is on the left side'
 			);
 
-			// The ceil() is necessary at least in FF30/Ubuntu to get equality :)
+			// The floor/ceil is necessary at least in FF30/Ubuntu and Chromium/Ubuntu to
+			// get equality
 			var
-				rPositionX = rPanel.position().left + lPanel.width()
+				rPositionX = rPanel.position().left + rPanel.width(),
 				cPositionXR = $(this).position().left + $(this).width();
 			assert.equal(
-				Math.ceil(rPositionX),
+				Math.floor(rPositionX),
 				Math.ceil(cPositionXR),
 				'Check that the right panel is on the right side'
 			);
