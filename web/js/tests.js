@@ -95,7 +95,7 @@ QUnit.test(
 				$(this),
 				'Check that all lines within a file are the same height',
 				function(lineItem) {
-					return lineItem.height();
+					return Math.floor(lineItem.height());
 				}
 			);
 		});
