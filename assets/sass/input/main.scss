@@ -59,7 +59,8 @@
 			border-top: 1px solid #eeeeee;
 		}
 		.line code {
-			height: 1.2em;
+			// px seems to be more reliable at getting passing QUnit tests than ems
+			height: 15px;
 			display: block;
 			white-space: pre;
 		}
@@ -71,8 +72,9 @@
 			width: 100%;
 
 			.diff-line {
+				// I previously used 'display: table' here, but this upsets Chrome relative
+				// to the line numbers, and it doesn't seem to be necessary
 				padding-left: 2px;
-				display: table;
 				width: 100%;
 				box-sizing: border-box; // Squash the background colour inside the border
 			}
