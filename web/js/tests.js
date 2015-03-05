@@ -184,6 +184,8 @@ QUnit.test(
 	}
 );
 
+// @todo Do a test to see if line number width + code width expands to full width
+
 QUnit.test(
 	'Check diffs without line numbers use full width',
 	function(assert) {
