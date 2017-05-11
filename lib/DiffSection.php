@@ -97,7 +97,9 @@ class DiffSection
 
 	public function getFirstLineNumberForSide($side)
 	{
-		return reset($this->getLineNumbersForSide($side));
+		$lineNumbers = $this->getLineNumbersForSide($side);
+
+		return reset($lineNumbers);
 	}
 
 	public function getLeftLineNumbers()
