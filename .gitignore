@@ -1,1 +1,5 @@
+# Generated files and folders
 .sass-cache/
+
+# Hide IDE files
+nbproject/
